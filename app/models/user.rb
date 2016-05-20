@@ -1,4 +1,13 @@
 class User < ActiveRecord::Base
+  has_many :activities, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :following_id, dependent: :destroy
+  has_many :lessons, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :following
+  has_many :follower, through: :passive_relationships, source: :follower
+
   attr_accessor :remember_token
   before_save {self.email = email.downcase}
   validates :name, presence: true, length: {maximum: 50}
@@ -19,7 +28,7 @@ class User < ActiveRecord::Base
       SecureRandom.urlsafe_base64
     end
   end
-  
+
   def remember
     self.remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)

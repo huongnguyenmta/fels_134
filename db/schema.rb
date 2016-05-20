@@ -11,13 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518062156) do
+ActiveRecord::Schema.define(version: 20160520081314) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "targer_id"
+    t.string   "action_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "word_id"
+    t.string   "content"
+    t.boolean  "is_correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "lesson_words", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.integer  "word_id"
+    t.integer  "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "result"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "following_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,5 +70,12 @@ ActiveRecord::Schema.define(version: 20160518062156) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "words", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
