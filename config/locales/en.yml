@@ -9,6 +9,8 @@ en:
     title_fels: "framgia viet nam"
     title_signup: "Sign up now!"
     title_system: "E-leaning System"
+    Courses: "Courses"
+    AdminCourses: "Admin Courses"
   contact_pages:
     link_contact: "Contact page"
     content_contact: "Please contact with our Elearning-System if you have any difficult"
@@ -42,4 +44,9 @@ en:
     user_deleted: "User deleted"
     categories: "Categories"
     word: "Word"
-
+  Course:
+    details: "Details"
+    edit: "Edit"
+    delete: "Delete"
+    name: "Name"
+    description: "Description"
