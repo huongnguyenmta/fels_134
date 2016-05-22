@@ -19,14 +19,10 @@ class User < ActiveRecord::Base
       SecureRandom.urlsafe_base64
     end
   end
-  
+
   def remember
     self.remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)
-  end
-
-  def current_user? user
-    user == current_user
   end
 
   def authenticated? remember_token
@@ -42,5 +38,9 @@ class User < ActiveRecord::Base
     forget current_user
     session.delete :user_id
     @current_user = nil
+  end
+
+  def is_user? user
+    self == user
   end
 end
