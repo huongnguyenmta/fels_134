@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index]
   namespace :admin do
     root "admin_users#index"
-    resources :users
     resources :categories, only: [:index]
+    resources :users, only: [:show, :index]
   end
 end
