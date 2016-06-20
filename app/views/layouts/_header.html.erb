@@ -8,10 +8,11 @@
         <% if logged_in? %>
           <% if current_user.admin? %>
             <li><%= link_to t("index_pages.all_users"), admin_users_path %></li>
-            <li><%= link_to t("index_pages.categories"), "#" %></li>
             <li><%= link_to t("index_pages.word"), "#" %></li>
+            <li><%= link_to t("layouts.AdminCourese"), admin_categories_path %></li>
           <% else %>
             <li><%= link_to t("edit_users.users"), users_path %></li>
+            <li><%= link_to t("layouts.Courses"), categories_path %></li>
           <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
