@@ -14,7 +14,9 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><li><%= link_to t("Course.details"), "#" %></li></td>
+        <td>
+          <li><%= link_to t("Course.details"), admin_category_path(category) %></li>
+        </td>
         <td><li><%= link_to t("Course.edit"), "#" %></li></td>
         <td><li><%= link_to t("Course.delete"), "#" %></li></td>
       </tr>
