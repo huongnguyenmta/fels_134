@@ -2,9 +2,43 @@
 <h1><%= t "index_pages.all_users" %></h1>
 
 <ul class="users">
-  <% @users.each do |user| %>
-    <%= render @users %>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+       <tr>
+        <th><%= t "index_pages.gravatar" %></th>
+        <th><%= t "index_pages.name" %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= gravatar_for user %>
+          </td>
+          <td>
+            <%= link_to user.name, user %>
+          </td>
+          <% if current_user.admin? && !user.is_user? current_user %>
+            <td>
+              <li>
+                <%= link_to t("index_pages.delete"), user, method: :delete,
+                data: {confirm: t("index_pages.you_sure")},
+                class: "btn waves-effect waves-light red lighten-1" %>
+              </li>
+            </td>
+            <td>
+              <li>
+                <%= link_to t("index_pages.detail"), admin_user_path(id: user.id),
+                class: "btn waves-effect waves-light green lighten-1" %>
+              </li>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </ul>
 
 <%= will_paginate %>

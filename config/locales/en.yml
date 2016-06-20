@@ -39,7 +39,7 @@ en:
     please_login: "Please login"
   index_pages:
     all_users: "All users"
-    delete: "delete"
+    delete: "Delete"
     you_sure: "You sure?"
     user_deleted: "User deleted"
     categories: "Categories"
@@ -50,3 +50,6 @@ en:
     delete: "Delete"
     name: "Name"
     description: "Description"
+    detail: "Detail"
+    gravatar: "Gravatar"
+    name: "Name"
