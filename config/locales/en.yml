@@ -24,7 +24,7 @@ en:
     flash: "Invalid email/password, try again"
     remember: "Remember me on this computer"
     new_user: "New user?"
-    admin_user: "You logged in to management all users"
+    admin_user: "You logged in to management system"
   edit_users:
     title_edit: "Edit user"
     save_change: "Save changes"
