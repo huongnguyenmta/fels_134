@@ -44,7 +44,7 @@ en:
     user_deleted: "User deleted"
     categories: "Categories"
     word: "Word"
-  Course:
+  course:
     details: "Details"
     edit: "Edit"
     delete: "Delete"
@@ -53,3 +53,6 @@ en:
     detail: "Detail"
     gravatar: "Gravatar"
     name: "Name"
+    create_new_category: "New category"
+    create_success: "Create a category successfully!"
+    submit: "Submit"

@@ -1,0 +1,17 @@
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @category] do |f| %>
+      <div class="input-field col s12">
+        <%= f.label :title, t("course.name") %>
+        <%= f.text_field :name, class: "input-field", required: true %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= f.label :title, t("course.description") %>
+        <%= f.text_area :description, class: "materialize-textarea", required: true %>
+      </div>
+
+      <%= f.submit t("course.submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

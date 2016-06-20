@@ -2,8 +2,12 @@
 <table class = "table table-striped">
   <thead>
     <tr>
-      <th><%= t "Course.name" %></th>
-      <th><%= t "Course.description" %></th>
+      <h2><%= link_to t("course.create_new_category"), new_admin_category_path %></h2>
+    </tr>
+    </br>
+    <tr>
+      <th><%= t "course.name" %></th>
+      <th><%= t "course.description" %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,10 +19,10 @@
         <td><%= category.name %></td>
         <td><%= category.description %></td>
         <td>
-          <li><%= link_to t("Course.details"), admin_category_path(category) %></li>
+          <li><%= link_to t("course.details"), admin_category_path(category) %></li>
         </td>
-        <td><li><%= link_to t("Course.edit"), "#" %></li></td>
-        <td><li><%= link_to t("Course.delete"), "#" %></li></td>
+        <td><li><%= link_to t("course.edit"), "#" %></li></td>
+        <td><li><%= link_to t("course.delete"), "#" %></li></td>
       </tr>
     <% end %>
   </tbody>
