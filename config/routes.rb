@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "admin_users#index"
     resources :users, only: [:show, :index]
-    resources :categories, only: [:index, :show, :new, :create]
+    resources :categories, only: [:index, :show, :new, :create, :destroy]
   end
 end
