@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user, :verify_admin_user, only: [:index, :destroy]
-  before_action :find_category, only: [:show, :destroy]
+  before_action :find_category, except: [:index, :new, :create]
+
   def index
     @categories = Category.paginate page: params[:page]
   end
@@ -22,6 +23,19 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "course.flash_update_success"
+      redirect_to admin_categories_url
+    else
+      flash[:danger] = t "course.flash_update_error"
+      render :edit
+    end
+  end
+
   def destroy
     @category.destroy
     flash[:success] = t "flash_message.delete_success"
@@ -33,7 +47,6 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit :name, :description
   end
 
-  private
   def find_category
     @category = Category.find_by id: params[:id]
   end
