@@ -15,3 +15,13 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp('new_' + association, 'g')
+   $('.new_answer').append(content.replace(regexp, new_id));
+}
+
+function remove_fields(link) {
+  $(link).parent().parent().remove();
+}

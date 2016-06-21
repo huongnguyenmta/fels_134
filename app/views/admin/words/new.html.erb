@@ -1,0 +1,26 @@
+<h1><%= t "words.add_word" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin,:category, @word] do |f| %>
+      <%= f.hidden_field :category_id, value: @category.id %>
+      <div class="input-field col s12">
+        <%= f.label :title, t("words.name") %>
+        <%= f.text_field :name, class: "input-field" %>
+      </div>
+      <br>
+      <br>
+      <%= link_to_add_fields t("words.answer.add_answer"), f, :answers %>
+      <br>
+      <br>
+      <div class="new_answer">
+        <%= f.fields_for :answers do |builder| %>
+          <%= render "answer_fields", f: builder %>
+        <% end %>
+        <br>
+      </div>
+      <br>
+      <br>
+      <%= f.submit t("words.submit"), class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+</div>
