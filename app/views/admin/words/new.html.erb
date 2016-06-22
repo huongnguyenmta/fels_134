@@ -7,19 +7,17 @@
         <%= f.label :title, t("words.name") %>
         <%= f.text_field :name, class: "input-field" %>
       </div>
-      <br>
-      <br>
+      </br>
       <%= link_to_add_fields t("words.answer.add_answer"), f, :answers %>
-      <br>
-      <br>
+      </br>
       <div class="new_answer">
         <%= f.fields_for :answers do |builder| %>
           <%= render "answer_fields", f: builder %>
         <% end %>
-        <br>
+        </br>
       </div>
-      <br>
-      <br>
+      </br>
+      </br>
       <%= f.submit t("words.submit"), class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>

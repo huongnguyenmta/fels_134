@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s4 push-s4">
+      <div class="col-md-6 col-md-offset-3">
+        <h1><%= t "words.update_word" %></h1>
+        <%= form_for [:admin, @category, @word] do |f| %>
+          <div class="input-field col s12">
+            <%= f.label :content, t("words.name") %>
+            <%= f.text_field :name, class: "input-field" %>
+          </div>
+          <%= link_to_add_fields t("words.answer.add_answer"), f, :answers %>
+          </br>
+          <div class="new_answer">
+            <%= f.fields_for :answers do |builder| %>
+              <%= render "answer_fields", f: builder %>
+            <% end %>
+            </br>
+          </div>
+          </br>
+          </br>
+          <%= f.submit t("words.submit"), class: "btn btn-lg btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

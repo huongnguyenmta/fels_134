@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     root "admin_users#index"
     resources :users, only: [:show, :index]
     resources :categories do
-      resources :words, only: [:new, :create]
+      resources :words, only: [:new, :create, :edit, :update]
     end
   end
 end
