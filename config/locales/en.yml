@@ -62,3 +62,15 @@ en:
     flash_update_success: "A category updated!"
     flash_update_error: "Update error"
     update: "Update a category"
+  words:
+    flash_create_success: "Admin created successfully!"
+    flash_create_unsuccess: "Unsuccessfully!"
+    create_word: "Create word"
+    submit: "Submit"
+    remove: "Remove"
+    name: "Name"
+    add_word: "Add word"
+    answer:
+      delete: "Delete"
+      add_answer: "Add answer"
+      content: "Content"

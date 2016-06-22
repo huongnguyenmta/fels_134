@@ -1,0 +1,14 @@
+<div class="row word_answer_form">
+  <div class="col-md-4">
+    <%= f.label :content, t("words.answer.content") %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_field :content, class: "input-field checkbox inline" %>
+  </div>
+  <div lass="input-field col s2">
+    <%= f.check_box :is_correct %>
+  </div>
+  <div class="input-field col s2">
+    <%= link_to_remove_fields t("words.remove"), f %>
+  </div>
+</div>

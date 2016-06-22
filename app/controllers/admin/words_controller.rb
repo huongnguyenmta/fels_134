@@ -1,0 +1,29 @@
+class Admin::WordsController < ApplicationController
+  before_action :logged_in_user, :verify_admin_user
+  before_action :load_category, only: [:new, :create]
+
+  def new
+    @word = Word.new
+  end
+
+  def create
+    @word = @category.words.new word_params
+    if @word.save
+      flash[:success] = t "words.flash_create_success"
+      redirect_to admin_category_path @category
+    else
+      flash[:danger] = t "words.flash_create_unsuccess"
+      render :new
+    end
+  end
+
+  private
+  def word_params
+    params.require(:word).permit :name, :category_id,
+      word_answers_attributes: [:id, :content, :is_correct, :_destroy]
+  end
+
+  def load_category
+    @category = Category.find_by id: params[:category_id]
+  end
+end
