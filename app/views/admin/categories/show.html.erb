@@ -20,6 +20,20 @@
           class: "btn btn-lg btn-primary" %>
       </div>
     </div>
+    <table class="table table-striped">
+      <% @words.each do |word| %>
+        <tr>
+          <td>
+            <%= word.name %>
+          </td>
+          <td>
+            <%= link_to t("index_pages.delete"), admin_category_word_path(@category, word),
+              method: :delete, data: {confirm: t("index_pages.you_sure")},
+              class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <div class="col s7">
     <div class="card-panel">
