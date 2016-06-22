@@ -29,11 +29,9 @@
           </li>
         </td>
         <td>
-          <li>
-            <%= link_to t("Course.delete"), admin_category_path(category),
-              method: :delete, data:
-              {confirm: t("flash_message.delete_category")} %>
-          </li>
+          <%= link_to t("Course.delete"), admin_category_path(category),
+            method: :delete, data:
+            {confirm: t("flash_message.delete_category")}, class: "btn btn-sm btn-danger" %>
         </td>
       </tr>
     <% end %>

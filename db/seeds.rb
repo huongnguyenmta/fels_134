@@ -24,3 +24,10 @@ User.create! name:  "Admin",
   Category.create(name: "Category #{category_id}",
                   description: "Learning Category #{category_id}" )
 end
+
+(1..5).each do |category_id|
+  (1..5).each do |word_id|
+    Word.create(name: "orange",
+                category_id: category_id)
+  end
+end

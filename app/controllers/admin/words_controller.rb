@@ -1,7 +1,7 @@
 class Admin::WordsController < ApplicationController
   before_action :logged_in_user, :verify_admin_user
   before_action :load_category
-  before_action :find_word, only: [:edit, :update, :show]
+  before_action :find_word, except: [:index, :new, :create]
 
   def show
     @ansers = @word.answers
@@ -33,6 +33,12 @@ class Admin::WordsController < ApplicationController
       flash[:danger] = t "words.flash_update_fail"
       render :edit
     end
+  end
+
+  def destroy
+    @word.destroy
+    flash[:success] = t "flash_message.delete_success"
+    redirect_to :back
   end
 
   private
